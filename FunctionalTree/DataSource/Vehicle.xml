@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Vehicles>
+  <Ferraris>
+    <Ferrari>
+      <Name>Fer201</Name>
+    </Ferrari>
+  </Ferraris>
+  <Benzs>
+    <Benz>
+      <Name>B871</Name>
+    </Benz>
+  </Benzs>
+  <Hondas>
+    <Honda>
+      <Name>H900</Name>
+    </Honda>
+    <Honda>
+      <Name>H790</Name>
+    </Honda>
+  </Hondas>
+</Vehicles>

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.IoTView = new System.Windows.Forms.TreeView();
+            this.ioTView = new System.Windows.Forms.TreeView();
             this.spC = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.spC)).BeginInit();
             this.spC.Panel1.SuspendLayout();
@@ -37,11 +37,11 @@
             // 
             // IoTView
             // 
-            this.IoTView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.IoTView.Location = new System.Drawing.Point(0, 0);
-            this.IoTView.Name = "IoTView";
-            this.IoTView.Size = new System.Drawing.Size(217, 532);
-            this.IoTView.TabIndex = 0;
+            this.ioTView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ioTView.Location = new System.Drawing.Point(0, 0);
+            this.ioTView.Name = "IoTView";
+            this.ioTView.Size = new System.Drawing.Size(217, 532);
+            this.ioTView.TabIndex = 0;
             // 
             // spC
             // 
@@ -51,7 +51,7 @@
             // 
             // spC.Panel1
             // 
-            this.spC.Panel1.Controls.Add(this.IoTView);
+            this.spC.Panel1.Controls.Add(this.ioTView);
             this.spC.Size = new System.Drawing.Size(651, 532);
             this.spC.SplitterDistance = 217;
             this.spC.TabIndex = 1;
@@ -76,7 +76,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TreeView IoTView;
+        private System.Windows.Forms.TreeView ioTView;
         private System.Windows.Forms.SplitContainer spC;
     }
 }

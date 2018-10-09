@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FunctionalTree.ModelBase
+namespace FunctionalTree.DataProvider
 {
-    public abstract class Vehicle
+    public class VehicleFactory
     {
-        public string Name { get; set; }
     }
 }

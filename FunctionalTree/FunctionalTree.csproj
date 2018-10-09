@@ -45,6 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataProvider\IoTTreeData.cs" />
+    <Compile Include="DataProvider\VehicleFactory.cs" />
+    <Compile Include="MainProperties.cs" />
+    <Compile Include="ModelBase\Vehicle.cs" />
+    <Compile Include="Model\Benz.cs" />
+    <Compile Include="Model\Ferrari.cs" />
+    <Compile Include="Model\Honda.cs" />
     <Compile Include="TreeFakeMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +87,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BestPractice.txt" />
+    <Content Include="DataSource\Vehicle.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

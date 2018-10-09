@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace FunctionalTree
 {
-    public partial class Form1 : Form
+    public partial class TreeFakeMainForm : Form
     {
-        public Form1()
+        #region Init
+        public TreeFakeMainForm()
         {
             InitializeComponent();
+            InitializeTreeView();
         }
+
+        private void InitializeTreeView()
+        {
+            IoTView.Vis
+        }
+        #endregion
     }
 }

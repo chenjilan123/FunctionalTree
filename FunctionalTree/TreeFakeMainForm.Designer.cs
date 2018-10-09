@@ -35,11 +35,11 @@
             this.spC.SuspendLayout();
             this.SuspendLayout();
             // 
-            // IoTView
+            // ioTView
             // 
             this.ioTView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ioTView.Location = new System.Drawing.Point(0, 0);
-            this.ioTView.Name = "IoTView";
+            this.ioTView.Name = "ioTView";
             this.ioTView.Size = new System.Drawing.Size(217, 532);
             this.ioTView.TabIndex = 0;
             // 

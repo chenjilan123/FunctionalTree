@@ -2,3 +2,22 @@
 2. Visual Studio: Solution Explorer, Class View, Object Browser.
 3. QQ: User Group.
 4. Windows File System.
+
+
+
+Careful:
+1. Setting the TreeNode.Checked property from within the BeforeCheck or 
+	AfterCheck event causes the event to be raised multiple times and can result in unexpected behavior.
+
+//How to optimize
+//https://docs.microsoft.com/zh-cn/dotnet/api/system.windows.forms.control.recreatehandle?view=netframework-4.7.2
+2. When setting the CheckBoxes, Scrollable, ImageIndex, and SelectedImageIndex properties at run time, 
+	the TreeView handle is recreated (see Control.RecreateHandle) to update the control's appearance. 
+	This causes all tree nodes to be collapsed, except for the selected TreeNode.
+
+
+
+
+
+
+ --//https://docs.microsoft.com/zh-cn/dotnet/framework/winforms/controls/treeview-control-overview-windows-forms

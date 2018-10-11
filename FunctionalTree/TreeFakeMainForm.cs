@@ -1,12 +1,5 @@
 ﻿using FunctionalTree.DataProvider;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FunctionalTree
@@ -27,13 +20,9 @@ namespace FunctionalTree
         {
             try
             {
+                
                 ioTView.BeginUpdate();
-                var treeNodes = ioTTreeData.GetVehicleTree();
-                ioTView.Nodes.Add("Root");
-                foreach (var node in treeNodes)
-                {
-                    ioTView.Nodes[0].Nodes.Add(node.Name);
-                }
+                ioTView.Nodes.Add(new IoTTreeData().GetRootNode());
                 ioTView.EndUpdate();
             }
             catch (Exception ex)

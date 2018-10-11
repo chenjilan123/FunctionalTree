@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TreeFakeMainForm));
             this.ioTView = new System.Windows.Forms.TreeView();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.spC = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.spC)).BeginInit();
             this.spC.Panel1.SuspendLayout();
@@ -37,11 +40,29 @@
             // 
             // ioTView
             // 
+            this.ioTView.Cursor = System.Windows.Forms.Cursors.Default;
             this.ioTView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ioTView.HotTracking = true;
+            this.ioTView.ImageIndex = 0;
+            this.ioTView.ImageList = this.imageList;
             this.ioTView.Location = new System.Drawing.Point(0, 0);
             this.ioTView.Name = "ioTView";
+            this.ioTView.SelectedImageIndex = 0;
             this.ioTView.Size = new System.Drawing.Size(217, 532);
+            this.ioTView.StateImageList = this.imageList;
             this.ioTView.TabIndex = 0;
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "奔驰off.png");
+            this.imageList.Images.SetKeyName(1, "奔驰on.png");
+            this.imageList.Images.SetKeyName(2, "本田off.png");
+            this.imageList.Images.SetKeyName(3, "本田on.png");
+            this.imageList.Images.SetKeyName(4, "法拉利off.png");
+            this.imageList.Images.SetKeyName(5, "法拉利on.png");
+            this.imageList.Images.SetKeyName(6, "文件夹.png");
             // 
             // spC
             // 
@@ -78,6 +99,7 @@
 
         private System.Windows.Forms.TreeView ioTView;
         private System.Windows.Forms.SplitContainer spC;
+        private System.Windows.Forms.ImageList imageList;
     }
 }
 

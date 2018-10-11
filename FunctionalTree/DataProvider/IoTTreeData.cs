@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace FunctionalTree.DataProvider
@@ -22,6 +23,14 @@ namespace FunctionalTree.DataProvider
             var hondas = from v in root.Element("Hondas").Elements("Honda")
                            select (Vehicle)new Honda { Name = (string)v.Element("Name") };
             return benzs.Union(ferraris).Union(hondas);
+        }
+
+        public TreeNode GetRootNode()
+        {
+            var xmlDoc = XDocument.Load("DataSource\\Vehicle.xml");
+            var root = xmlDoc.Root;
+            //此处依赖于抽象。
+            return new XmlVehicleFactory().CreateVehicleNode(root);
         }
     }
 }

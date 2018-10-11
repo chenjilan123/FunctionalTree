@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="DataProvider\IoTTreeData.cs" />
     <Compile Include="DataProvider\VehicleFactory.cs" />
+    <Compile Include="DataProvider\XmlVehicleFactory.cs" />
     <Compile Include="MainProperties.cs" />
     <Compile Include="ModelBase\Vehicle.cs" />
     <Compile Include="Model\Benz.cs" />
@@ -90,6 +91,15 @@
     <Content Include="DataSource\Vehicle.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="DataSource\刷新blue.png" />
+    <Content Include="DataSource\刷新gray.png" />
+    <Content Include="DataSource\奔驰off.png" />
+    <Content Include="DataSource\奔驰on.png" />
+    <Content Include="DataSource\文件夹.png" />
+    <Content Include="DataSource\本田off.png" />
+    <Content Include="DataSource\本田on.png" />
+    <Content Include="DataSource\法拉利off.png" />
+    <Content Include="DataSource\法拉利on.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

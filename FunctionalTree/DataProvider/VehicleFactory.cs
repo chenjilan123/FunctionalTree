@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FunctionalTree.ModelBase;
+using System.Windows.Forms;
 
 namespace FunctionalTree.DataProvider
 {
-    public class VehicleFactory
+    public abstract class VehicleFactory<T>
     {
+        public abstract TreeNode CreateVehicleNode(T root);
+
+        public abstract Vehicle CreateVehicle(T element);
     }
 }

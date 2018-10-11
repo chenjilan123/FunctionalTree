@@ -53,11 +53,17 @@
     <Compile Include="Model\Benz.cs" />
     <Compile Include="Model\Ferrari.cs" />
     <Compile Include="Model\Honda.cs" />
-    <Compile Include="TreeFakeMainForm.cs">
+    <Compile Include="VehicleDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VehicleDetail.Designer.cs">
+      <DependentUpon>VehicleDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleOrganization.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TreeFakeMainForm.Designer.cs">
-      <DependentUpon>TreeFakeMainForm.cs</DependentUpon>
+    <Compile Include="VehicleOrganization.Designer.cs">
+      <DependentUpon>VehicleOrganization.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,9 +75,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TreeFakeMainForm.resx">
-      <DependentUpon>TreeFakeMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="VehicleDetail.resx">
+      <DependentUpon>VehicleDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehicleOrganization.resx">
+      <DependentUpon>VehicleOrganization.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -16,7 +16,7 @@ namespace FunctionalTree
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TreeFakeMainForm());
+            Application.Run(new VehicleOrganization());
         }
     }
 }

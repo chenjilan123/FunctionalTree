@@ -1,6 +1,6 @@
 ﻿namespace FunctionalTree
 {
-    partial class TreeFakeMainForm
+    partial class VehicleOrganization
     {
         /// <summary>
         /// Required designer variable.
@@ -29,28 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TreeFakeMainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleOrganization));
             this.ioTView = new System.Windows.Forms.TreeView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.spC = new System.Windows.Forms.SplitContainer();
+            this.refresh = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.spC)).BeginInit();
             this.spC.Panel1.SuspendLayout();
             this.spC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.refresh)).BeginInit();
             this.SuspendLayout();
             // 
             // ioTView
             // 
+            this.ioTView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ioTView.CheckBoxes = true;
             this.ioTView.Cursor = System.Windows.Forms.Cursors.Default;
             this.ioTView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ioTView.HotTracking = true;
             this.ioTView.ImageIndex = 0;
             this.ioTView.ImageList = this.imageList;
+            this.ioTView.Indent = 19;
+            this.ioTView.LineColor = System.Drawing.Color.Gray;
             this.ioTView.Location = new System.Drawing.Point(0, 0);
             this.ioTView.Name = "ioTView";
             this.ioTView.SelectedImageIndex = 0;
-            this.ioTView.Size = new System.Drawing.Size(217, 532);
-            this.ioTView.StateImageList = this.imageList;
+            this.ioTView.Size = new System.Drawing.Size(220, 532);
             this.ioTView.TabIndex = 0;
+            this.ioTView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ioTView_MouseMove);
             // 
             // imageList
             // 
@@ -72,16 +78,31 @@
             // 
             // spC.Panel1
             // 
+            this.spC.Panel1.Controls.Add(this.refresh);
             this.spC.Panel1.Controls.Add(this.ioTView);
-            this.spC.Size = new System.Drawing.Size(651, 532);
-            this.spC.SplitterDistance = 217;
+            this.spC.Size = new System.Drawing.Size(660, 532);
+            this.spC.SplitterDistance = 220;
             this.spC.TabIndex = 1;
+            // 
+            // refresh
+            // 
+            this.refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refresh.BackColor = System.Drawing.Color.White;
+            this.refresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.refresh.Image = global::FunctionalTree.Properties.Resources.刷新gray;
+            this.refresh.Location = new System.Drawing.Point(198, 3);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(19, 19);
+            this.refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.refresh.TabIndex = 0;
+            this.refresh.TabStop = false;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // TreeFakeMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 532);
+            this.ClientSize = new System.Drawing.Size(660, 532);
             this.Controls.Add(this.spC);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -91,6 +112,7 @@
             this.spC.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spC)).EndInit();
             this.spC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.refresh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -100,6 +122,7 @@
         private System.Windows.Forms.TreeView ioTView;
         private System.Windows.Forms.SplitContainer spC;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.PictureBox refresh;
     }
 }
 

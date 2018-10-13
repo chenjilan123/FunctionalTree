@@ -15,7 +15,6 @@ namespace FunctionalTree
             ioTTreeData = new IoTTreeData();
             InitializeTreeView();
             InitializeTreeNode();
-
         }
 
         private void InitializeTreeView()
@@ -31,17 +30,21 @@ namespace FunctionalTree
 
         private void InitializeTreeNode()
         {
+            ioTView.BeginUpdate();
             try
             {
-                ioTView.BeginUpdate();
                 ioTView.Nodes.Clear();
                 ioTView.Nodes.Add(new IoTTreeData().GetRootNode());
                 ioTView.Nodes[0].Expand();
-                ioTView.EndUpdate();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //一定要调取EndUpdate，不然树会停止绘制
+                ioTView.EndUpdate();
             }
         }
 
@@ -52,11 +55,11 @@ namespace FunctionalTree
             InitializeTreeNode();
         }
 
-        private void ioTView_MouseMove(object sender, MouseEventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
-            //可以出现手型指针，但会抖动。
-            //var node = ioTView.GetNodeAt(e.X, e.Y);
-            //Cursor = node == null ? Cursors.Default : Cursors.Hand;
+            //MessageBox.Show($"DBVehicleFactory: {typeof(DataProvider.VehicleFactories.DbVehicleFactory)}" +
+            //    $"\r\nXmlVehicleFactory: {typeof(DataProvider.VehicleFactories.XmlVehicleFactory)}" +
+            //    $"\r\nVehicleFactory: {typeof(DataProvider.VehicleFactories.VehicleTreeFactory)}");
         }
     }
 }

@@ -34,8 +34,11 @@
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.spC = new System.Windows.Forms.SplitContainer();
             this.refresh = new System.Windows.Forms.PictureBox();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.OK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.spC)).BeginInit();
             this.spC.Panel1.SuspendLayout();
+            this.spC.Panel2.SuspendLayout();
             this.spC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.refresh)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +59,6 @@
             this.ioTView.SelectedImageIndex = 0;
             this.ioTView.Size = new System.Drawing.Size(220, 532);
             this.ioTView.TabIndex = 0;
-            this.ioTView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ioTView_MouseMove);
             // 
             // imageList
             // 
@@ -80,6 +82,11 @@
             // 
             this.spC.Panel1.Controls.Add(this.refresh);
             this.spC.Panel1.Controls.Add(this.ioTView);
+            // 
+            // spC.Panel2
+            // 
+            this.spC.Panel2.Controls.Add(this.Cancel);
+            this.spC.Panel2.Controls.Add(this.OK);
             this.spC.Size = new System.Drawing.Size(660, 532);
             this.spC.SplitterDistance = 220;
             this.spC.TabIndex = 1;
@@ -98,7 +105,26 @@
             this.refresh.TabStop = false;
             this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
-            // TreeFakeMainForm
+            // Cancel
+            // 
+            this.Cancel.Location = new System.Drawing.Point(350, 497);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(75, 23);
+            this.Cancel.TabIndex = 1;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = true;
+            // 
+            // OK
+            // 
+            this.OK.Location = new System.Drawing.Point(269, 497);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(75, 23);
+            this.OK.TabIndex = 0;
+            this.OK.Text = "OK";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
+            // 
+            // VehicleOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,10 +132,11 @@
             this.Controls.Add(this.spC);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "TreeFakeMainForm";
+            this.Name = "VehicleOrganization";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.spC.Panel1.ResumeLayout(false);
+            this.spC.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spC)).EndInit();
             this.spC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.refresh)).EndInit();
@@ -123,6 +150,8 @@
         private System.Windows.Forms.SplitContainer spC;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.PictureBox refresh;
+        private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.Button OK;
     }
 }
 

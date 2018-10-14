@@ -62,6 +62,7 @@
     <Compile Include="XmlBuilder\XmlVehicleTreeBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BinaryTree.txt" />
     <Content Include="DataProvider\Factory.txt" />
     <Content Include="DataProvider\Microsoft.SqlServer.Types.dll" />
     <Content Include="Factory.txt" />

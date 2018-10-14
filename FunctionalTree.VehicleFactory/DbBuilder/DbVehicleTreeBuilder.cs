@@ -17,9 +17,11 @@ namespace FunctionalTree.VehicleFactory.DbBuilder
     {
         private DbVehicleBuilder vehicleBuilder = new DbVehicleBuilder();
         private DbHelper dbHelper = new DbHelper();
+        private Dictionary<SqlHierarchyId, TreeNode> TreeNodeDic = new Dictionary<SqlHierarchyId, TreeNode>();
+
         public TreeNode GetRootNode()
         {
-            var rootNode = new TreeNode();
+            TreeNode rootNode = null;
             var parameter = dbHelper.NewParameter();
             parameter.ParameterName = "@orgId";
             parameter.Value = 1;
@@ -27,30 +29,35 @@ namespace FunctionalTree.VehicleFactory.DbBuilder
             {
                 if (!reader.Read())
                     return null;
-                var root = vehicleBuilder.ReadNode(reader);
-                rootNode.Name = root.Name;
+                var nodePair = GetNewNodePair(reader);
+                rootNode = nodePair.Node;
 
-                var lastHierarchyId = root.HierarchyId;
+                var lastHierarchyId = nodePair.HierarchyId;
                 var lastTreeNode = rootNode;
                 while (reader.Read())
                 {
-                    var node = vehicleBuilder.ReadNode(reader);
-                    TreeNode currentTreeNode = null;
-                    if (node.SimNum != null)
-                        currentTreeNode = vehicleBuilder.CreateNode(node.Name, node.VehicleId, node.SimNum, node.PlateNum, node.TerminalId);
-                    else
-                        currentTreeNode = new TreeNode(node.Name);
-                    if (node.HierarchyId.IsDescendantOf(lastHierarchyId))
+                    nodePair = GetNewNodePair(reader);
+                    if (nodePair.HierarchyId.IsDescendantOf(lastHierarchyId))
                     {
-                        lastTreeNode.Nodes.Add(currentTreeNode);
+                        lastTreeNode.Nodes.Add(nodePair.Node);
+                    }
+                    else
+                    {
+                        TreeNodeDic[nodePair.HierarchyId.GetAncestor(1)].Nodes.Add(nodePair.Node);
                     }
 
-                    lastHierarchyId = node.HierarchyId;
-                    lastTreeNode = currentTreeNode;
+                    lastHierarchyId = nodePair.HierarchyId;
+                    lastTreeNode = nodePair.Node;
                 }
             }
             return rootNode;
         }
-        
+
+        private (SqlHierarchyId HierarchyId, TreeNode Node) GetNewNodePair(DbDataReader reader)
+        {
+            var nodePair = vehicleBuilder.CreateNode(reader);
+            TreeNodeDic.Add(nodePair.HierarchyId, nodePair.Node);
+            return nodePair;
+        }
     }
 }

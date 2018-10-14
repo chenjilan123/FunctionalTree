@@ -12,21 +12,34 @@ namespace FunctionalTree.VehicleFactory.DbBuilder.Helper
 {
     public class DbVehicleBuilder
     {
-        public (SqlHierarchyId HierarchyId, string Name, string VehicleId, string SimNum, string PlateNum, string TerminalId) ReadNode(DbDataReader reader)
+        public (SqlHierarchyId HierarchyId, TreeNode Node) CreateNode(DbDataReader reader)
         {
             var node = reader.GetFieldValue<SqlHierarchyId>(0);
             var name = reader["Name"].ToString();
             var vehicleId = reader["VehicleId"].ToString();
+            if (string.IsNullOrEmpty(vehicleId))
+            {
+                return (node, new TreeNode(name)
+                {
+                    ImageIndex = 6,
+                    SelectedImageIndex = 6,
+                });
+            }
             var simnum = reader["SimNum"].ToString();
             var platenum = reader["PlateNum"].ToString();
             var terminalId = reader["TerminalId"].ToString();
-
-            return (node, name, vehicleId, simnum, platenum, terminalId);
+            return (node, CreateNode(name, vehicleId, simnum, platenum, terminalId));
         }
 
         public TreeNode CreateNode(string name, string vehicleId, string simnum, string platenum, string terminalId)
         {
-            return new Benz() { Name = name };
+            var node = new Benz()
+            {
+                ImageIndex = 0,
+                SelectedImageIndex = 1,
+            };
+            node.Text = node.Name = name;
+            return node;
         }
     }
 }

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DataProvider\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -42,20 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractDataFactory.cs" />
     <Compile Include="DataProvider\DbHelper.cs" />
-    <Compile Include="DbFactory\DbVehicleFactory.cs" />
+    <Compile Include="Factories\DbFactory.cs" />
+    <Compile Include="DbFactory\DbVehicleTreeBuilder.cs" />
     <Compile Include="Model\Benz.cs" />
     <Compile Include="Model\Ferrari.cs" />
     <Compile Include="Model\Honda.cs" />
     <Compile Include="Model\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IVehicleBuilder.cs" />
     <Compile Include="VehicleTreeFactories.cs" />
     <Compile Include="IVehicleTreeBuilder.cs" />
-    <Compile Include="XmlFactory\XmlVehicleFactory.cs" />
+    <Compile Include="Factories\XmlFactory.cs" />
+    <Compile Include="XmlFactory\XmlVehicleTreeBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataProvider\Factory.txt" />
+    <Content Include="DataProvider\Microsoft.SqlServer.Types.dll" />
     <Content Include="Factory.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,14 +14,14 @@ namespace FunctionalTree.VehicleFactory
             get
             {
                 ConfigurationManager.RefreshSection("appSettings"); //可运行时动态更改配置//注意xml区分大小写
-                return ConfigurationManager.AppSettings["VehicleFactory"].ToString();
+                return ConfigurationManager.AppSettings["DataFactory"].ToString();
             }
         }
 
-        public static IVehicleTreeBuilder CreateVehicleFactory()
+        public static AbstractDataFactory CreateFactory()
         {
             Type type = Type.GetType(VehicleTreeFactoryType);
-            return type.Assembly.CreateInstance(type.FullName) as IVehicleTreeBuilder;
+            return type.Assembly.CreateInstance(type.FullName) as AbstractDataFactory;
         }
     }
 }

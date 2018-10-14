@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FunctionalTree.VehicleFactory.DataProvider;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -8,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FunctionalTree.VehicleFactory.DataProvider.VehicleFactories
+namespace FunctionalTree.VehicleFactory.DbFactory
 {
-    public class DbVehicleFactory : IVehicleTreeBuilder
+    public class DbVehicleTreeBuilder : IVehicleTreeBuilder
     {
         private DbHelper dbHelper = null;
         public DbHelper DbHelper

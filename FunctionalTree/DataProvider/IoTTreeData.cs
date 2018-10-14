@@ -24,10 +24,25 @@ namespace FunctionalTree.DataProvider
         //}
         #endregion
 
+        private AbstractDataFactory factory = null;
+        public AbstractDataFactory Factory
+        {
+            get
+            {
+                if (factory == null)
+                {
+                    factory = VehicleTreeFactories.CreateFactory();
+                }
+                return factory;
+            }
+        }
+
+
         public TreeNode GetRootNode()
         {
             //此处依赖于抽象。
-            return VehicleTreeFactories.CreateVehicleFactory().GetRootNode();
+            var vehicleTreeBuilder = Factory.CreateVehicleTreeBuilder(); //此处也可以做缓存(类似Factory)
+            return vehicleTreeBuilder.GetRootNode();
         }
     }
 }

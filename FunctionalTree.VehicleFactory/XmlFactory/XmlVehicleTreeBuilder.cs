@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace FunctionalTree.VehicleFactory.XmlFactory
 {
-    public class XmlVehicleFactory : IVehicleTreeBuilder
+    public class XmlVehicleTreeBuilder : IVehicleTreeBuilder
     {
         private static string[] vehicles = { "Benz", "Ferrari", "Honda" };
         public TreeNode GetRootNode()

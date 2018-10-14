@@ -50,13 +50,13 @@
             this.ioTView.Cursor = System.Windows.Forms.Cursors.Default;
             this.ioTView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ioTView.HotTracking = true;
-            this.ioTView.ImageIndex = 0;
+            this.ioTView.ImageIndex = 6;
             this.ioTView.ImageList = this.imageList;
             this.ioTView.Indent = 19;
             this.ioTView.LineColor = System.Drawing.Color.Gray;
             this.ioTView.Location = new System.Drawing.Point(0, 0);
             this.ioTView.Name = "ioTView";
-            this.ioTView.SelectedImageIndex = 0;
+            this.ioTView.SelectedImageIndex = 6;
             this.ioTView.Size = new System.Drawing.Size(220, 532);
             this.ioTView.TabIndex = 0;
             // 

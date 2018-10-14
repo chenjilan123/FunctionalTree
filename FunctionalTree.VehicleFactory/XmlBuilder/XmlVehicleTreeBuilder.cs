@@ -26,7 +26,7 @@ namespace FunctionalTree.VehicleFactory.XmlBuilder
         {
             if (vehicles.Contains(xElement.Name.ToString()))
                 return this.CreateVehicle(xElement);
-            var node = new TreeNode(xElement.Name.ToString()) { ImageIndex = 6, SelectedImageIndex = 6};
+            var node = new TreeNode(xElement.Name.ToString());
             foreach (var childElement in xElement.Elements())
             {
                 node.Nodes.Add(GetVehicleNode(childElement));
@@ -40,25 +40,13 @@ namespace FunctionalTree.VehicleFactory.XmlBuilder
             switch (element.Name.ToString())
             {
                 case "Benz":
-                    vehicle = new Benz()
-                    {
-                        ImageIndex = 0,
-                        SelectedImageIndex = 1,
-                    };
+                    vehicle = new Benz();
                     break;
                 case "Honda":
-                    vehicle = new Honda()
-                    {
-                        ImageIndex = 2,
-                        SelectedImageIndex = 3,
-                    };
+                    vehicle = new Honda();
                     break;
                 case "Ferrari":
-                    vehicle = new Ferrari()
-                    {
-                        ImageIndex = 4,
-                        SelectedImageIndex = 5,
-                    };
+                    vehicle = new Ferrari();
                     break;
                 default:
                     break;

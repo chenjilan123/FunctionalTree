@@ -19,11 +19,7 @@ namespace FunctionalTree.VehicleFactory.DbBuilder.Helper
             var vehicleId = reader["VehicleId"].ToString();
             if (string.IsNullOrEmpty(vehicleId))
             {
-                return (node, new TreeNode(name)
-                {
-                    ImageIndex = 6,
-                    SelectedImageIndex = 6,
-                });
+                return (node, new TreeNode(name));
             }
             var simnum = reader["SimNum"].ToString();
             var platenum = reader["PlateNum"].ToString();
@@ -33,11 +29,7 @@ namespace FunctionalTree.VehicleFactory.DbBuilder.Helper
 
         public TreeNode CreateNode(string name, string vehicleId, string simnum, string platenum, string terminalId)
         {
-            var node = new Benz()
-            {
-                ImageIndex = 0,
-                SelectedImageIndex = 1,
-            };
+            var node = new Ferrari();
             node.Text = node.Name = name;
             return node;
         }

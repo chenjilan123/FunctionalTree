@@ -2,5 +2,10 @@
 {
     public class Benz : Vehicle
     {
+        public Benz()
+        {
+            base.ImageIndex = 0;
+            base.SelectedImageIndex = 1;
+        }
     }
 }

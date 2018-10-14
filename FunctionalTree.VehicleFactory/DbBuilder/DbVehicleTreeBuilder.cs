@@ -1,7 +1,9 @@
 ﻿using FunctionalTree.VehicleFactory.DataProvider;
 using FunctionalTree.VehicleFactory.DbBuilder.Helper;
+using FunctionalTree.VehicleFactory.Model;
 using Microsoft.SqlServer.Types;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -50,7 +52,33 @@ namespace FunctionalTree.VehicleFactory.DbBuilder
                     lastTreeNode = nodePair.Node;
                 }
             }
+            ClearOrgizationWithoutVehicle(rootNode);
             return rootNode;
+        }
+
+        private void ClearOrgizationWithoutVehicle(TreeNode node)
+        {
+            var nodeArr = new ArrayList(node.Nodes);
+            foreach (TreeNode childNode in nodeArr)
+            {
+                if (childNode is Vehicle)
+                    continue;
+                if (childNode == null || childNode.Nodes == null)
+                {
+                    continue;
+                }
+                if (childNode.Nodes.Count == 0)
+                    DeleteNodes(childNode);
+                else
+                    ClearOrgizationWithoutVehicle(childNode);
+            }
+        }
+        private void DeleteNodes(TreeNode node)
+        {
+            var parentNode = node.Parent;
+            parentNode.Nodes.Remove(node);
+            if (parentNode.Nodes.Count == 0)
+                DeleteNodes(parentNode);
         }
 
         private (SqlHierarchyId HierarchyId, TreeNode Node) GetNewNodePair(DbDataReader reader)

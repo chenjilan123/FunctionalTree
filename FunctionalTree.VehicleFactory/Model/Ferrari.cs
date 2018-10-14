@@ -2,5 +2,10 @@
 {
     public class Ferrari : Vehicle
     {
+        public Ferrari()
+        {
+            base.ImageIndex = 4;
+            base.SelectedImageIndex = 5;
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace FunctionalTree.VehicleFactory.Factories
 {
-    internal class DbFactory : AbstractDataFactory
+    internal class DbFactory : DataFactory
     {
         public override IVehicleTreeBuilder CreateVehicleTreeBuilder()
         {

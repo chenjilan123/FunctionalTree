@@ -18,10 +18,10 @@ namespace FunctionalTree.VehicleFactory
             }
         }
 
-        public static AbstractDataFactory CreateFactory()
+        public static DataFactory CreateFactory()
         {
             Type type = Type.GetType(DataFactoryName);
-            return type.Assembly.CreateInstance(type.FullName) as AbstractDataFactory;
+            return type.Assembly.CreateInstance(type.FullName) as DataFactory;
         }
     }
 }

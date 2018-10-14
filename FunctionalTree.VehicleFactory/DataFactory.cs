@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FunctionalTree.VehicleFactory
 {
-    public abstract class AbstractDataFactory
+    public abstract class DataFactory
     {
         public abstract IVehicleTreeBuilder CreateVehicleTreeBuilder();
 

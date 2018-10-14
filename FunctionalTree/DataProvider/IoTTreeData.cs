@@ -24,8 +24,8 @@ namespace FunctionalTree.DataProvider
         //}
         #endregion
 
-        private AbstractDataFactory factory = null;
-        public AbstractDataFactory Factory
+        private DataFactory factory = null;
+        public DataFactory Factory
         {
             get
             {

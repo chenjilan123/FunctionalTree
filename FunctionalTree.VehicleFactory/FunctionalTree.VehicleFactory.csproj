@@ -30,7 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DataProvider\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractDataFactory.cs" />
+    <Compile Include="DataFactory.cs" />
     <Compile Include="DataProvider\DbHelper.cs" />
+    <Compile Include="DbBuilder\Helper\DbVehicleBuilder.cs" />
     <Compile Include="Factories\DbFactory.cs" />
     <Compile Include="DbBuilder\DbVehicleTreeBuilder.cs" />
     <Compile Include="Model\Benz.cs" />

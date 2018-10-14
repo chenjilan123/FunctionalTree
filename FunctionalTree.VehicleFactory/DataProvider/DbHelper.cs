@@ -51,24 +51,35 @@ namespace FunctionalTree.VehicleFactory.DataProvider
             ConfigurationManager.RefreshSection(ConnectionStringsSection);
         }
 
+        public DbDataReader GetDataReader(string spName, IEnumerable<DbParameter> parameters)
+        {
+            var command = GetCommand(spName, parameters);
+            command.Connection.Open();
+            return command.ExecuteReader(CommandBehavior.CloseConnection);
+        }
         public DataTable GetDataTable(string spName, IEnumerable<DbParameter> parameters)
+        {
+            var command = GetCommand(spName, parameters);
+            var adapter = Factory.CreateDataAdapter();
+            adapter.SelectCommand = command;
+            var dataset = new DataSet();
+            //当表中含hierarchyid时，可能引发异常，这是因为项目没引用hiererchyid相关的程序集
+            adapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
+        private DbCommand GetCommand(string spName, IEnumerable<DbParameter> parameters)
         {
             var command = Factory.CreateCommand();
             command.Connection = Connection;
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = spName;
-            
             foreach (var parameter in parameters)
             {
                 command.Parameters.Add(parameter);
             }
-            var adapter = Factory.CreateDataAdapter();
-            adapter.SelectCommand = command;
-            
-            var dataset = new DataSet();
-            //当表中含hierarchyid时，可能引发异常，这是因为项目没引用hiererchyid相关的程序集
-            adapter.Fill(dataset);
-            return dataset.Tables[0];
+
+            return command;
         }
     }
 }

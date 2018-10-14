@@ -1,4 +1,6 @@
 ﻿using FunctionalTree.VehicleFactory.DataProvider;
+using FunctionalTree.VehicleFactory.DbBuilder.Helper;
+using Microsoft.SqlServer.Types;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,35 +15,42 @@ namespace FunctionalTree.VehicleFactory.DbBuilder
 {
     public class DbVehicleTreeBuilder : IVehicleTreeBuilder
     {
-        private DbHelper dbHelper = null;
-        public DbHelper DbHelper
-        {
-            get
-            {
-                if (dbHelper == null)
-                {
-                    dbHelper = new DbHelper();
-                }
-
-                return dbHelper;
-            }
-        }
+        private DbVehicleBuilder vehicleBuilder = new DbVehicleBuilder();
+        private DbHelper dbHelper = new DbHelper();
         public TreeNode GetRootNode()
         {
-            DataTable dtSource = GetVehicleDataTable();
-            foreach (DataRow dr in dtSource.Rows)
-            {
-
-            }
-            return null;
-        }
-        
-        private DataTable GetVehicleDataTable()
-        {
-            var parameter = DbHelper.NewParameter();
+            var rootNode = new TreeNode();
+            var parameter = dbHelper.NewParameter();
             parameter.ParameterName = "@orgId";
             parameter.Value = 1;
-            return DbHelper.GetDataTable("IoT.GetVehicle", new DbParameter[] { parameter });
+            using (var reader = dbHelper.GetDataReader("IoT.GetVehicle", new DbParameter[] { parameter }))
+            {
+                if (!reader.Read())
+                    return null;
+                var root = vehicleBuilder.ReadNode(reader);
+                rootNode.Name = root.Name;
+
+                var lastHierarchyId = root.HierarchyId;
+                var lastTreeNode = rootNode;
+                while (reader.Read())
+                {
+                    var node = vehicleBuilder.ReadNode(reader);
+                    TreeNode currentTreeNode = null;
+                    if (node.SimNum != null)
+                        currentTreeNode = vehicleBuilder.CreateNode(node.Name, node.VehicleId, node.SimNum, node.PlateNum, node.TerminalId);
+                    else
+                        currentTreeNode = new TreeNode(node.Name);
+                    if (node.HierarchyId.IsDescendantOf(lastHierarchyId))
+                    {
+                        lastTreeNode.Nodes.Add(currentTreeNode);
+                    }
+
+                    lastHierarchyId = node.HierarchyId;
+                    lastTreeNode = currentTreeNode;
+                }
+            }
+            return rootNode;
         }
+        
     }
 }

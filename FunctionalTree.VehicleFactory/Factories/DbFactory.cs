@@ -1,9 +1,4 @@
-﻿using FunctionalTree.VehicleFactory.DbFactory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FunctionalTree.VehicleFactory.DbBuilder;
 
 namespace FunctionalTree.VehicleFactory.Factories
 {

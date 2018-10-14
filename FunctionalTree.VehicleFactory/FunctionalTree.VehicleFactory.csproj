@@ -49,7 +49,7 @@
     <Compile Include="AbstractDataFactory.cs" />
     <Compile Include="DataProvider\DbHelper.cs" />
     <Compile Include="Factories\DbFactory.cs" />
-    <Compile Include="DbFactory\DbVehicleTreeBuilder.cs" />
+    <Compile Include="DbBuilder\DbVehicleTreeBuilder.cs" />
     <Compile Include="Model\Benz.cs" />
     <Compile Include="Model\Ferrari.cs" />
     <Compile Include="Model\Honda.cs" />
@@ -58,7 +58,7 @@
     <Compile Include="VehicleTreeFactories.cs" />
     <Compile Include="IVehicleTreeBuilder.cs" />
     <Compile Include="Factories\XmlFactory.cs" />
-    <Compile Include="XmlFactory\XmlVehicleTreeBuilder.cs" />
+    <Compile Include="XmlBuilder\XmlVehicleTreeBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataProvider\Factory.txt" />

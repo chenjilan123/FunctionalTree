@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace FunctionalTree.VehicleFactory.XmlFactory
+namespace FunctionalTree.VehicleFactory.XmlBuilder
 {
     public class XmlVehicleTreeBuilder : IVehicleTreeBuilder
     {

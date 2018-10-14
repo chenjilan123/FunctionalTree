@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FunctionalTree.VehicleFactory.DbFactory
+namespace FunctionalTree.VehicleFactory.DbBuilder
 {
     public class DbVehicleTreeBuilder : IVehicleTreeBuilder
     {

@@ -9,7 +9,7 @@ namespace FunctionalTree.VehicleFactory
 {
     public static class VehicleTreeFactories
     {
-        private static string VehicleTreeFactoryType
+        private static string DataFactoryName
         {
             get
             {
@@ -20,7 +20,7 @@ namespace FunctionalTree.VehicleFactory
 
         public static AbstractDataFactory CreateFactory()
         {
-            Type type = Type.GetType(VehicleTreeFactoryType);
+            Type type = Type.GetType(DataFactoryName);
             return type.Assembly.CreateInstance(type.FullName) as AbstractDataFactory;
         }
     }

@@ -9,5 +9,8 @@ namespace FunctionalTree.VehicleFactory
     public abstract class AbstractDataFactory
     {
         public abstract IVehicleTreeBuilder CreateVehicleTreeBuilder();
+
+        //Here add new data builders
+        //public abstract IUserModuleAutherizationProvider CreateUserModuleAutherizationProvider();
     }
 }

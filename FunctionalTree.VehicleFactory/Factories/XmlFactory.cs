@@ -1,9 +1,4 @@
-﻿using FunctionalTree.VehicleFactory.XmlFactory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FunctionalTree.VehicleFactory.XmlBuilder;
 
 namespace FunctionalTree.VehicleFactory.Factories
 {

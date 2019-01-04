@@ -1,4 +1,5 @@
 ﻿using FunctionalTree.DataProvider;
+using FunctionalTree.VehicleFactory.Model;
 using System;
 using System.Windows.Forms;
 
@@ -60,6 +61,28 @@ namespace FunctionalTree
             //MessageBox.Show($"DBVehicleFactory: {typeof(DataProvider.VehicleFactories.DbVehicleFactory)}" +
             //    $"\r\nXmlVehicleFactory: {typeof(DataProvider.VehicleFactories.XmlVehicleFactory)}" +
             //    $"\r\nVehicleFactory: {typeof(DataProvider.VehicleFactories.VehicleTreeFactory)}");
+        }
+
+        private void ioTView_AfterExpand(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node is Vehicle)
+            {
+                return;
+            }
+
+            e.Node.ImageIndex = 7;
+            e.Node.SelectedImageIndex = 7;
+        }
+
+        private void ioTView_AfterCollapse(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node is Vehicle)
+            {
+                return;
+            }
+
+            e.Node.ImageIndex = 6;
+            e.Node.SelectedImageIndex = 6;
         }
     }
 }

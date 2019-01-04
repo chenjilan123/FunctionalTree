@@ -59,6 +59,8 @@
             this.ioTView.SelectedImageIndex = 6;
             this.ioTView.Size = new System.Drawing.Size(220, 532);
             this.ioTView.TabIndex = 0;
+            this.ioTView.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.ioTView_AfterCollapse);
+            this.ioTView.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.ioTView_AfterExpand);
             // 
             // imageList
             // 
@@ -71,6 +73,7 @@
             this.imageList.Images.SetKeyName(4, "法拉利off.png");
             this.imageList.Images.SetKeyName(5, "法拉利on.png");
             this.imageList.Images.SetKeyName(6, "文件夹.png");
+            this.imageList.Images.SetKeyName(7, "文件夹 (1).png");
             // 
             // spC
             // 

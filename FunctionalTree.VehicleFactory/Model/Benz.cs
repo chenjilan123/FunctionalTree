@@ -1,4 +1,6 @@
-﻿namespace FunctionalTree.VehicleFactory.Model
+﻿using System.Drawing;
+
+namespace FunctionalTree.VehicleFactory.Model
 {
     public class Benz : Vehicle
     {

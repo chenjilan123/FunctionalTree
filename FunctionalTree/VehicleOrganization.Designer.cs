@@ -36,6 +36,7 @@
             this.refresh = new System.Windows.Forms.PictureBox();
             this.Cancel = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spC)).BeginInit();
             this.spC.Panel1.SuspendLayout();
             this.spC.Panel2.SuspendLayout();
@@ -53,6 +54,7 @@
             this.ioTView.ImageIndex = 6;
             this.ioTView.ImageList = this.imageList;
             this.ioTView.Indent = 19;
+            this.ioTView.ItemHeight = 24;
             this.ioTView.LineColor = System.Drawing.Color.Gray;
             this.ioTView.Location = new System.Drawing.Point(0, 0);
             this.ioTView.Name = "ioTView";
@@ -88,6 +90,7 @@
             // 
             // spC.Panel2
             // 
+            this.spC.Panel2.Controls.Add(this.label1);
             this.spC.Panel2.Controls.Add(this.Cancel);
             this.spC.Panel2.Controls.Add(this.OK);
             this.spC.Size = new System.Drawing.Size(660, 532);
@@ -127,6 +130,18 @@
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoEllipsis = true;
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Location = new System.Drawing.Point(49, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
             // VehicleOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -140,6 +155,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.spC.Panel1.ResumeLayout(false);
             this.spC.Panel2.ResumeLayout(false);
+            this.spC.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spC)).EndInit();
             this.spC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.refresh)).EndInit();
@@ -155,6 +171,7 @@
         private System.Windows.Forms.PictureBox refresh;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button OK;
+        private System.Windows.Forms.Label label1;
     }
 }
 
